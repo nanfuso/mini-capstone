@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  get '/product' => 'computers#computer'
+  get '/mini-capstone' => 'computers#computer'
 end
