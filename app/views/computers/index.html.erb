@@ -1,0 +1,7 @@
+<% @computers.each do |computer| %>
+    <h2> <a href= "/computers/<%= computer.id %>"><%= computer.name %></a></h2>
+    <h3>Price: <%= computer.price %></h3>
+    <img src=<%= computer.image %> >
+    <h3>Description: <%= computer.description %></h3>
+    <br>
+<% end %>
