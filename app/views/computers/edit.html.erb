@@ -1,0 +1,11 @@
+<h1>Edit posting</h1>
+
+<%= form_tag "/computers/#{@computer.id}", method: :patch do %>
+    <div>Item Name: <input type="text" name="name" value="<%= @computer.name %>">
+    </div>
+    <div>Price: <input type="text" name="price" value="<%= @computer.price %>">
+    </div>
+    <div>Description: <input type="text" name="description" value="<%= @computer.description %>">
+    </div>
+    <input type="submit" value="Update Posting">
+<% end %>

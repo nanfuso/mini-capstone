@@ -1,7 +1,7 @@
-<a href="/"> Home</a>
-
 <h2><%= @computer.name %></h2>
 <h3>Price: <%= @computer.price %></h3>
 <img src=<%= @computer.image %> >
 <h3>Description: <%= @computer.description %></h3>
 
+<a href="/computers/<%= @computer.id %>/edit"> EDIT | </a>
+<%= link_to "DELETE", "/computers/#{ @computer.id }", method: :delete %>
