@@ -1,17 +1,21 @@
 class Compter < ApplicationRecord
     def sale_alert
-        sale_message = ""
-        sale_message = "Discount item!" if price.to_i < 20 
-        sale_message = "Everyday Value!" if price.to_i >= 20
-        sale_message
+        if discounted?
+            "Discount item!!"
+        else
+            "Everyday Value!!"
+        end
+    end
+
+    def discounted?
+        price < 20
     end
 
     def tax
-        tax = price.to_i * 0.09
-        tax.round(3)
+        price * 0.09
     end
 
     def total_price
-        price.to_i + tax
+        price + tax
     end
 end
