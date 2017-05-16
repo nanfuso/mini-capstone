@@ -1,5 +1,6 @@
 <h2><%= @computer.name %></h2>
-<p class="<%= "red-price" if @computer.discounted? %>"> Price: <%= number_to_currency(@computer.price) %></p>
+<h5><%= @computer.supplier.name %></h5>
+<h3 class="<%= "red-price" if @computer.discounted? %>"> Price: <%= number_to_currency(@computer.price) %></h3>
 <h4>Tax: <%= number_to_currency(@computer.tax) %></h4>
 <h3>Total: <%= number_to_currency(@computer.total_price) %></h3>
 <img src=<%= @computer.image %> >

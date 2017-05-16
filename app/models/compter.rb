@@ -1,4 +1,6 @@
 class Compter < ApplicationRecord
+    belongs_to :supplier
+    
     def sale_alert
         if discounted?
             "Discount item!!"
@@ -8,7 +10,7 @@ class Compter < ApplicationRecord
     end
 
     def discounted?
-        price < 20
+        price < 100
     end
 
     def tax

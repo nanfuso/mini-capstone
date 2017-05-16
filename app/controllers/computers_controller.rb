@@ -1,11 +1,32 @@
 class ComputersController < ApplicationController
     def index
         @computers = Compter.all
+        sort_attribute = params[:sort]
+        sort_order = params[:sort_order]
+        discount = params[:discount]
+        search_term = params[:search_term]
+
+        if search_term
+            @computers = Compter.where(
+                                        "name iLIKE ? OR description iLIKE ?", 
+                                        "%#{search_term}%", 
+                                        "%#{search_term}%"
+                                        )
+        end
+
+        if discount
+            @computers = @computers.where("price < ?", discount)
+        end
+
+        if sort_attribute && sort_order
+            @computers = @computers.order(sort_attribute => sort_order)
+        elsif sort_attribute
+            @computers = @computers.order(sort_attribute)
+        end
     end
 
     def show
-        computer_id = params[:id]
-        @computer = Compter.find_by(id: computer_id)
+        @computer = Compter.find(params[:id])
     end
 
     def new
@@ -44,5 +65,10 @@ class ComputersController < ApplicationController
         computer.destroy
         flash[:danger] = "Post Destroyed!"
         redirect_to "/"
+    end
+
+    def random
+        computer = Compter.all.sample
+        redirect_to "/computers/#{computer.id}"
     end
 end

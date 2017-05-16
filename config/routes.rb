@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   get '/computers/:id/edit' => 'computers#edit'
   patch '/computers/:id' => 'computers#update'
   delete '/computers/:id' => 'computers#destroy'
+
+  get '/random' => 'computers#random'
 end
