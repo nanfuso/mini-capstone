@@ -1,5 +1,6 @@
 class Compter < ApplicationRecord
     belongs_to :supplier
+    has_many :images
     
     def sale_alert
         if discounted?
@@ -19,5 +20,14 @@ class Compter < ApplicationRecord
 
     def total_price
         price + tax
+    end
+
+    def first_image_url
+        image_collection = images
+        if image_collection.length == 0
+            "https://i.giphy.com/ZYm4NC2RJARHO.gif"
+        else
+        image_collection.first.url
+    end
     end
 end

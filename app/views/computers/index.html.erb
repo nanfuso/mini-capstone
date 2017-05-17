@@ -3,9 +3,10 @@
     <div class="col-md-4">
         <div class="thumbnail well">
             <h2> <a href="/computers/<%= computer.id %>"><%= computer.name %></a></h2>
+            <h3> <%= computer.supplier.name %></h3>
             <h3>Price: <%= number_to_currency(computer.price) %></h3>
             <h3><%= computer.sale_alert %></h3>
-            <img src=<%= computer.image %> alt="<%= computer.name %>">
+            <img src=<%= computer.first_image_url %> alt="<%= computer.name %>">
             <h3><%= computer.description %></h3>
             <br>
         </div>

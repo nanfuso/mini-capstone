@@ -5,6 +5,7 @@ class ComputersController < ApplicationController
         sort_order = params[:sort_order]
         discount = params[:discount]
         search_term = params[:search_term]
+        supplier_sort = params[:supplier_sort]
 
         if search_term
             @computers = Compter.where(
@@ -16,6 +17,10 @@ class ComputersController < ApplicationController
 
         if discount
             @computers = @computers.where("price < ?", discount)
+        end
+
+        if supplier_sort
+            @computers = @computers.where("supplier_id = ?", supplier_sort)
         end
 
         if sort_attribute && sort_order
@@ -36,7 +41,8 @@ class ComputersController < ApplicationController
         computer = Compter.new(
                                 name: params[:name],
                                 price: params[:price],
-                                description: params[:description]
+                                description: params[:description],
+                                supplier_id: params[:supplier][:supplier_id]
                                 )
         computer.save
 
@@ -53,7 +59,8 @@ class ComputersController < ApplicationController
         computer.assign_attributes(
                                     name: params[:name],
                                     price: params[:price],
-                                    description: params[:description]
+                                    description: params[:description],
+                                    supplier_id: params[:supplier][:supplier_id]
                                     )
         computer.save
         flash[:success] = "Post Updated"
