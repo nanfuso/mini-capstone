@@ -9,4 +9,11 @@ Rails.application.routes.draw do
   delete '/computers/:id' => 'computers#destroy'
 
   get '/random' => 'computers#random'
+
+  get '/signup' => 'users#new'
+  post 'users' => 'users#create'
+
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
 end
