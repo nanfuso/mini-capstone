@@ -1,0 +1,11 @@
+<h1>Your order has been submitted!</h1>
+
+<h2>Order details</h2>
+<h2>Order Id: <%= @order.id %></h2>
+<h3>Order Placed: <%= @order.created_at %></h3>
+<h2>Name: <%= @compter.name %></h2>
+<h2>Quantity: <%= @order.quantity %></h2>
+<h2>Price: <%= @order.price_with_quantity %></h2>
+<h2>Tax: <%= @order.tax_with_quantity %></h2>
+<h2>________________________</h2>
+<h2>Subtotal: <%= @order.subtotal_with_quantity %></h2>

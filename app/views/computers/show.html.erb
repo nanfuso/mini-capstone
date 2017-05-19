@@ -1,4 +1,5 @@
 <h2><%= @computer.name %></h2>
+<h5>Product Id: <%= @computer.id %></h5>
 <h5><%= @computer.supplier.name %></h5>
 <h3 class="<%= "red-price" if @computer.discounted? %>"> Price: <%= number_to_currency(@computer.price) %></h3>
 <h4>Tax: <%= number_to_currency(@computer.tax) %></h4>
@@ -9,6 +10,15 @@
     <img src=" <%= image.url %>" alt=" <%= @computer.name %>">
     <br>
     <% end %>
+
+<h2>Buy Now!</h2>
+<%= form_tag '/orders', method: :post do %>
+<div>Quantity: <input type="integer" name="quantity"></div>
+<div>Product Id: <input type="integer" name="compter_id"></div>
+<input type="submit" value="submit">
+<% end %>
+<br>
+
 
 
 
