@@ -6,6 +6,11 @@ class ComputersController < ApplicationController
         discount = params[:discount]
         search_term = params[:search_term]
         supplier_sort = params[:supplier_sort]
+        category = params[:category]
+
+        if category
+            @computers = Category.find_by(name: category).compters
+        end
 
         if search_term
             @computers = Compter.where(

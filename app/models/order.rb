@@ -2,15 +2,15 @@ class Order < ApplicationRecord
     belongs_to :compter, optional: true
     belongs_to :user
 
-    def price_with_quantity
-        @price = compter.price * quantity
+    def subtotal_with_quantity
+        self.subtotal = compter.price * quantity
     end
 
     def tax_with_quantity
-        @tax = @price * 0.09
+        self.tax = subtotal * 0.09
     end
 
-    def subtotal_with_quantity
-        @price + @tax
+    def total_with_quantity
+        self.total = subtotal + tax
     end
 end

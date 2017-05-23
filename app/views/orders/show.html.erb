@@ -1,12 +1,12 @@
 <h1>Your order has been submitted!</h1>
 
 <h2>Order details</h2>
-<h2>Order Id: <%= @order.id %></h2>
-<h2>Ordered By: <%= current_user.email %></h2>
-<h3>Order Placed: <%= @order.created_at %></h3>
-<h2>Name: <%= @compter.name %></h2>
-<h2>Quantity: <%= @order.quantity %></h2>
-<h2>Price: <%= @order.price_with_quantity %></h2>
-<h2>Tax: <%= @order.tax_with_quantity %></h2>
-<h2>________________________</h2>
-<h2>Subtotal: <%= @order.subtotal_with_quantity %></h2>
+<h4>Order #: 8779<%= @order.id %></h4>
+<h4>Ordered By: <%= current_user.email %></h4>
+<h4>Order Placed: <%= @order.created_at %></h4>
+<h3>Product: <%= @order.compter.name %></h3>
+<h3>Quantity: <%= @order.quantity %></h3>
+<h3>Subtotal: <%= number_to_currency(@order.subtotal_with_quantity) %></h3>
+<h3>Tax: <%= number_to_currency(@order.tax_with_quantity) %></h3>
+<h2>________________________</h3>
+<h3>Price: <%= number_to_currency(@order.total_with_quantity) %></h3>

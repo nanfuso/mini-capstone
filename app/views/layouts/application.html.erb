@@ -9,6 +9,8 @@
   </head>
 
   <body>
+
+
   <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -36,7 +38,12 @@
             <li><a href="/computers?supplier_sort=3">Texas Instruments</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="/computers?sort=price">Price: low to high</a></li>
-            <li><a href="/computers?sort=price&sort_order=desc">Price: high to low</a></li>
+            <li><a href="/computers?sort=price&sort_order=desc">Price: high to low
+            <li role="separator" class="divider"></li>
+
+            <% Category.all.each do |category| %>
+            <li><a href="/computers?category=<%=  category.name %>"><%= category.name.titleize %></a></li></a></li>
+            <% end %>
           </ul>
         </li>
       </ul>

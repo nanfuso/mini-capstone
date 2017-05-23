@@ -6,10 +6,12 @@ class OrdersController < ApplicationController
                             quantity: params[:quantity],
                             user_id: current_user.id,
                             compter_id: params[:compter_id],
-                            subtotal: @compter.price,
-                            tax: @compter.tax,
-                            total: @compter.total_price
                             )
+        
+        order.subtotal_with_quantity
+        order.tax_with_quantity
+        order.total_with_quantity
+
         order.save
         redirect_to "/orders/#{order.id}"
     end

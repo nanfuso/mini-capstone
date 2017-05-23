@@ -2,6 +2,9 @@ class Compter < ApplicationRecord
     belongs_to :supplier
     has_many :images
     has_many :orders
+
+    has_many :category_compters
+    has_many :categories, through: :category_compters
     
     def sale_alert
         if discounted?
@@ -30,5 +33,9 @@ class Compter < ApplicationRecord
         else
         image_collection.first.url
     end
+    end
+
+    def show_categories
+        categories.map{ |category| category.name }.join(", ")
     end
 end
