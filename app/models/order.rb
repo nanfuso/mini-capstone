@@ -1,6 +1,7 @@
 class Order < ApplicationRecord
-    belongs_to :compter, optional: true
     belongs_to :user
+    has_many :carted_products
+    has_many :compters, through: :carted_products
 
     def subtotal_with_quantity
         self.subtotal = compter.price * quantity
