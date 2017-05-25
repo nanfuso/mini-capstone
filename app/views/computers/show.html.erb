@@ -16,7 +16,7 @@
     <% end %>
 
 
-<%= form_tag '/cart', method: :post do %>
+<%= form_tag '/carted_products', method: :post do %>
 <div><input type="integer" name="quantity" placeholder="Quantity"></div>
 <input type="hidden" name="compter_id" value="<%= @computer.id %>">
 <input type="submit" value="Add to Cart" class="btn btn-primary">
