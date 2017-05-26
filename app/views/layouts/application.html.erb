@@ -68,9 +68,11 @@
             <li><a href="/login">Log In</a></li>
             <li role="separator" class="divider"></li>
             <% end %>
+            <% if admin_signed_in? %>
             <li><a href="/computers/new">New Posting</a></li>
             <li role="separator" class="divider"></li>
-            <% if current_user = true %>
+            <% end %>
+            <% if current_user == true %>
             <li><a href="/logout">Log Out</a></li>
             <% end %>
             <li><a href="/carted_products"><span class="glyphicon glyphicon-shopping-cart"></span> Shopping Cart </a></li>

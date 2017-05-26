@@ -21,7 +21,10 @@
 <input type="hidden" name="compter_id" value="<%= @computer.id %>">
 <input type="submit" value="Add to Cart" class="btn btn-primary">
 <% end %>
+
 <br>
 
+<% if admin_signed_in? %>
 <a href="/computers/<%= @computer.id %>/edit"> EDIT | </a>
 <%= link_to "DELETE", "/computers/#{ @computer.id }", method: :delete %>
+<% end %>

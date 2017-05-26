@@ -1,5 +1,7 @@
 class CartedProductsController < ApplicationController
     
+    before_action :authenticate_user!
+    
     def index
         if current_user && current_user.cart.any?
             @carted_products = current_user.cart
@@ -10,6 +12,7 @@ class CartedProductsController < ApplicationController
     end
 
     def create
+         
         @compter = Compter.find(params[:compter_id])
         carted_products = CartedProduct.new(
                             quantity: params[:quantity],
@@ -25,6 +28,7 @@ class CartedProductsController < ApplicationController
     end
 
     def destroy
+
         carted_product = CartedProduct.find(params[:id])
         carted_product.update(status: "removed")
         flash[:success] = "Item removed from cart."
