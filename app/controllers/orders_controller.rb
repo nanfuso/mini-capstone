@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-    before_action :autenticate_user! 
+    # before_action :authenticate_user! 
 
     def create
         carted_products = current_user.cart
@@ -14,7 +14,7 @@ class OrdersController < ApplicationController
 
     def show
         @order = Order.find(params[:id])
-        unless current_user.id && order.user_id == @order.user.id
+        unless current_user.id && @order.user_id == @order.user.id
             redirect_to '/'
         end
     end
